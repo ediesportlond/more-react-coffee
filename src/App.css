@@ -42,8 +42,8 @@ body {
 }
 
 .menu-items__item>img {
-  height: 20rem;
-  width: 20rem;
+  height: 55%;
+  width: 55%;
   border-radius: 1em;
   object-fit: cover;
   margin-right: auto;
