@@ -19,9 +19,9 @@ export default function SingleCoffee({ coffee }) {
                     {
                         !favorite
                             ? <button onClick={() => setFavorite(true)}>Favorite</button>
-                            :<button onClick={() => setFavorite()}>Not Favorite</button>
-                            
-                }
+                            : <button onClick={() => setFavorite()}>Not Favorite</button>
+
+                    }
                 </div>
             </div>
         </>
