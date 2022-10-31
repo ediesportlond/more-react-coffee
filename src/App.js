@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import SingleCoffee from './components/SingleCoffee';
 
 function App() {
+  const [coffeeList, setCoffeeList] = useState();
+
+  const getCoffees = () => {
+    fetch("https://api.sampleapis.com/coffee/hot")
+      .then(res => res.json())
+      .then(setCoffeeList)
+      .catch(console.error)
+    console.log(coffeeList);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main>
+        <h1>Coffees by Sample API</h1>
+        <button onClick={getCoffees}>Get Coffees</button>
+        <div  className="menu-items">
+        {
+          coffeeList && coffeeList.map(coffee => (
+            <SingleCoffee coffee={coffee}/>
+          ))
+        }
+        </div>
+      </main>
     </div>
   );
 }
